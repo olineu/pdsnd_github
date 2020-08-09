@@ -8,7 +8,8 @@ Udacity Project No. 3: Post your work on GitHub
 This project is about working with Git and posting a python project on GitHub.
 
 ### Files used
-Include the files used
+bikeshare.py
+README.de
 
 ### Credits
 It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
