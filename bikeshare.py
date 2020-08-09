@@ -17,7 +17,7 @@ def get_filters():
     """
     print('Hello! Let\'s explore some US bikeshare data!')
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
-    
+
     while True:
         city = input('\nWould you like to see data for Chicago, New York or Washington?\n').lower()
         if city not in ('chicago', 'new York', 'washington'):
@@ -25,9 +25,9 @@ def get_filters():
             continue
         else:
             break
-    
+
     # TO DO: get user input for month (all, january, february, ... , june)
-    while True: 
+    while True:
         month = input('\nWhich month would you like to filter by? January, February, March, April, May or June? Type "all" if you do not have any preference.\n').lower()
         if month not in ('january', 'february', 'march', 'april', 'may', 'june', 'all'):
             print("Sorry! I did not catch that. Please try again!")
@@ -61,7 +61,7 @@ def load_data(city, month, day):
     """
     # load data file into a dataframe
     df = pd.read_csv(CITY_DATA[city])
-    
+
     # convert the Start Time column to datetime
     df['Start Time'] = pd.to_datetime(df['Start Time'])
 
@@ -93,17 +93,17 @@ def time_stats(df):
     start_time = time.time()
 
     # TO DO: display the most common month
-    
+
     popular_month = df['month'].mode()[0]
     print('Most Common Month:',popular_month)
 
     # TO DO: display the most common day of week
-    
+
     popular_day = df['day_of_week'].mode()[0]
     print('Most Common Day:',popular_day)
 
     # TO DO: display the most common start hour
-    
+
     df['hour'] = df['Start Time'].dt.hour
     popular_hour = df['hour'].mode()[0]
     print('Most Common Hour:',popular_hour)
@@ -119,7 +119,7 @@ def station_stats(df):
     start_time = time.time()
 
     # TO DO: display most commonly used start station
-    
+
     start_station = df['Start Station'].value_counts().idxmax()
     print('Most Commonly Used Start Station:',start_station)
 
@@ -149,7 +149,7 @@ def trip_duration_stats(df):
     print('Total Travel Time:',total_travel_time/86400, " Days")
 
     # TO DO: display mean travel time
-    
+
     mean_travel_time = df['Trip Duration'].mean()
     print('Mean Travel Time:',mean_travel_time/60, " Minutes")
 
@@ -169,7 +169,7 @@ def user_stats(df):
     print('User Types:\n',user_types)
 
     # TO DO: Display counts of gender
-    
+
     try:
         gender_types = df['Gender'].value_counts()
         print('\nGender Types:\n',gender_types)
@@ -182,41 +182,41 @@ def user_stats(df):
         earliest_year = df['Birth Year'].min()
         print('\nThe earliest year:', earliest_year)
     except KeyError:
-        print('\nThe earliest Year:\nNo data available for this month.')                         
+        print('\nThe earliest Year:\nNo data available for this month.')
 
     try:
         most_recent_year = df['Birth Year'].max()
         print('\nThe most recent year:', most_recent_year)
     except KeyError:
-        print('\nThe most recent year:\nNo data available for this month.')  
+        print('\nThe most recent year:\nNo data available for this month.')
 
     try:
         most_common_year = df['Birth Year'].value_counts().idxmax()
         print('\nThe most common year:', most_common_year)
     except KeyError:
-        print('\nThe most common year:\nNo data available for this month.')  
+        print('\nThe most common year:\nNo data available for this month.')
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
 # Function to display 5 lines of raw data if the user answers 'yes'
-def display_data(df):
+def displayData(df):
     """
     Ask if user wants to see 5 lines of raw data from the csv file for the selected city.
     Display 5 lines, then ask if user wants to see 5 more lines. Continue asking untill user says stop.
-    
+
     """
     show_rows = 5
-    rows_start = 0 
+    rows_start = 0
     rows_end = show_rows - 1 # Use index values for rows
 
     while True:
         raw_data = input('\nWould you like to see 5 lines of raw data from the current dataset? Type "yes" or "no".\n').lower()
-        
+
         # Check for right input.
         if raw_data not in ('yes', 'no'):
            print("Sorry! I did not catch that. Please try again!")
-        
+
         elif raw_data == 'yes':
             print('\nDisplaying lines {} to {}:'.format(rows_start + 1, rows_end + 1))
             # Display show_rows of lines, e.g. 5 lines
@@ -230,7 +230,7 @@ def display_data(df):
 
         else:
             break
-        
+
 # Main function to call all previous functions
 def main():
     while True:
@@ -241,7 +241,7 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
-        display_data(df)
+        displayData(df)
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
