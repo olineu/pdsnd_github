@@ -5,7 +5,7 @@
 Udacity Project No. 3: Post your work on GitHub
 
 ### Description
-Describe what your project is about and what it does
+This project is about working with Git and posting a python project on GitHub.
 
 ### Files used
 Include the files used
