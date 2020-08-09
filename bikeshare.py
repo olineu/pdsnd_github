@@ -201,7 +201,7 @@ def user_stats(df):
     print('-'*40)
 
 # Function to display 5 lines of raw data if the user answers 'yes'
-def display_data(df):
+def displayData(df):
     """
     Ask if user wants to see 5 lines of raw data from the csv file for the selected city.
     Display 5 lines, then ask if user wants to see 5 more lines. Continue asking untill user says stop.
@@ -242,7 +242,7 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
-        display_data(df)
+        displayData(df)
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
