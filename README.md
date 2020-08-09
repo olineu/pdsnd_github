@@ -2,7 +2,7 @@
 09.08.2020
 
 ### Project Title
-Replace the Project Title
+Udacity Project No. 3: Post your work on GitHub
 
 ### Description
 Describe what your project is about and what it does
